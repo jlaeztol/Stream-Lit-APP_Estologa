@@ -13,7 +13,7 @@ def main():
    
     @st.cache_resource
     def load_model():
-        model = tf.keras.models.load_model('model.app.h5')
+        model = tf.keras.models.load_model('weights-improvement-14-0.99.hdf5')
         return model
     
     def import_and_predict(image_data, model):
@@ -26,7 +26,7 @@ def main():
         return prediction
 
     model = load_model()
-    class_names = ['Cloud Image','Desert Image','Green Space Image','Surface Water Image']
+    class_names = ["Cloudy", "Desert", "Green_area", "Water"]
     
 
     file = st.file_uploader("Upload Ground Satellite Image from your computer", type=["jpg", "png", "jpeg"])
