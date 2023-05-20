@@ -6,14 +6,14 @@ import cv2
 
 def main():
     # set up the Streamlit app
-    st.write("Name: Ryan Paningbatan")
-    st.write("Section: CPE32S6")
-    st.title("Lion and Cheetah Classifier")
-    st.write("This app classifies whether an uploaded image contains a Lion or a Cheetah using a pre-trained convolutional neural network model.")
+    st.write("Estologa, John Lester (FINAL-EXAM)")
+    st.write("CPE32S6")
+    st.title("Ground Satellite Image Classifier 📷🛰️")
+    st.write("Using Pre-trained Convolutional Neural Network Model, this app enables to identify the Ground Satellite Images.")
    
     @st.cache_resource
     def load_model():
-        model = tf.keras.models.load_model('weights-improvement-29-0.90.hdf5')
+        model = tf.keras.models.load_model('model.app.h5')
         return model
     
     def import_and_predict(image_data, model):
@@ -26,10 +26,10 @@ def main():
         return prediction
 
     model = load_model()
-    class_names = ["Cheetah", "Lion"]
+    class_names = ['Cloud Image','Desert Image','Green Space Image','Surface Water Image']
     
 
-    file = st.file_uploader("Choose a Lion or Cheetah picture from your computer", type=["jpg", "png", "jpeg"])
+    file = st.file_uploader("Upload Ground Satellite Image from your computer", type=["jpg", "png", "jpeg"])
 
     if file is None:
         st.text("Please upload an image file")
